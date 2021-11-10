@@ -20,6 +20,10 @@ namespace atividade.Entities
             Nome = nome;
             Preço = preco;
         }
-        
+        //to string para apresentar
+        public override string ToString()
+        {
+            return Nome + " - " + Preço;
+        }
     }
 }

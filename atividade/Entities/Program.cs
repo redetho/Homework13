@@ -11,17 +11,14 @@ namespace atividade.Entities
         {
             //declarações
             int produtos;
-            string condição;
-            string nome;
-            int preço;
-            string data;
-            double taxa;
-            
-            
+
+
             //recebe o número de produtos.
             Console.WriteLine("insira o n. de produtos:");
             produtos = Convert.ToInt32(Console.ReadLine());
-            for(int i = 0; i< produtos; i++)
+            //vector
+            Comum[] vect = new Comum[produtos + 1];
+            for (int i = 0; i< produtos; i++)
             {
                 Console.WriteLine();
                 Console.WriteLine("PRODUTO #" + (i + 1));
@@ -29,57 +26,38 @@ namespace atividade.Entities
                 //pergunta se o produto é usado, comum ou importado no if else.
                 if(Console.ReadKey().Key == ConsoleKey.C)
                 {
-                    condição = "comum";
+                    string condição = "comum";
                     Console.WriteLine("Digite o nome do produto.");
-                    nome = Console.ReadLine();
+                    string nome = Console.ReadLine();
                     Console.WriteLine("Digite o preço do produto.");
-                    preço = Convert.ToInt32(Console.ReadLine());
-                    //adiciona na lista e apresenta uma etiqueta.
-                    List<Comum> lista = new List<Comum>();
-                    lista.Add(new Comum (condição, nome, preço));
-                    Console.WriteLine();
-                    Console.WriteLine("etiqueta:");
-                    Console.Write(nome + "  -  ");
-                    Console.Write("R$: " + preço);
+                    int preço = Convert.ToInt32(Console.ReadLine());
+                   //adiciona ao vector
+                    vect[i] = new Comum(condição, nome, preço);
 
                 }
                 else if(Console.ReadKey().Key == ConsoleKey.U)
                 {
-                    condição = "usado";
+                    string condição = "usado";
                     Console.WriteLine("Digite o nome do produto.");
-                    nome = Console.ReadLine();
+                    string nome = Console.ReadLine();
                     Console.WriteLine("Digite o preço do produto.");
-                    preço = Convert.ToInt32(Console.ReadLine());
+                    int preço = Convert.ToInt32(Console.ReadLine());
                     Console.WriteLine("Digite a data de fabricação/ (DD/MM/AAAA)");
-                    data = Console.ReadLine();
+                    string data = Console.ReadLine();
 
-                    List<Usado> lista = new List<Usado>();
-                    lista.Add(new Usado(condição, nome, preço, data));
-                    Console.WriteLine();
-                    Console.WriteLine("etiqueta:");
-                    Console.Write(nome + " ");
-                    Console.Write("(" + condição+ ")" + "  -  ");
-                    Console.Write("R$: " +preço);
-                    Console.Write("  (fabricado:" + data + ")");
+                    vect[i] = new Usado(condição, nome, preço, data);
                 }
                 else if(Console.ReadKey().Key == ConsoleKey.I)
                 {
-                    condição = "importado";
+                    string condição  = "importado";
                     Console.WriteLine("Digite o nome do produto.");
-                    nome = Console.ReadLine();
+                    string nome = Console.ReadLine();
                     Console.WriteLine("Digite o preço do produto.");
-                    preço = Convert.ToInt32(Console.ReadLine());
+                    int preço  = Convert.ToInt32(Console.ReadLine());
                     Console.WriteLine("qual é a taxa de importação do produto?");
-                    taxa = Convert.ToDouble(Console.ReadLine());
+                    double taxa = Convert.ToDouble(Console.ReadLine());
 
-                    Importado produtoimportado = new Importado(condição, nome, preço, taxa);
-                    List<Importado> lista = new List<Importado>();
-                    lista.Add(new Importado(condição, nome, preço, taxa));
-                    Console.WriteLine();
-                    Console.WriteLine("etiqueta:");
-                    Console.Write(nome + "  -  ");
-                    Console.Write("R$: " + preço);
-                    Console.Write("  (Taxa: " + taxa + ")");
+                    vect[i] = new Importado(condição, nome, preço, taxa);
                 }
                 else{
                     Console.WriteLine("caractere inválido!");
@@ -87,6 +65,20 @@ namespace atividade.Entities
 
 
             }
+            //Formatação
+            Console.WriteLine("===================================");
+            Console.WriteLine("");
+
+            //mostra as etiquetas. 
+            Console.WriteLine("Etiquetas: ");
+            for (int i = 0; i < produtos + 1; i++)
+            {
+                if (vect[i] != null)
+                {
+                    Console.WriteLine(vect[i]);
+                }
+            }
+            Console.ReadKey();
 
         }
     }

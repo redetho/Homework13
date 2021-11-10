@@ -16,6 +16,10 @@ namespace atividade.Entities
         {
             Taxa = taxa;
         }
+        public override string ToString()
+        {
+            return Nome + " - " + Preço + "(Taxa: " +Taxa +")";
+        }
 
     }
     

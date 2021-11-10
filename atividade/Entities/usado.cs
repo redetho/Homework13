@@ -16,6 +16,9 @@ namespace atividade.Entities
         {
             Data = data;
         }
-
+        public override string ToString()
+        {
+            return Nome + " (usado) - " + Preço +("   (")+ Data+ (")");
+        }
     }
 }
