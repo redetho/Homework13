@@ -4,7 +4,7 @@ using System.Text;
 
 namespace atividade.Entities
 {
-    //criação da classe conta
+    //criação da classe comum
     public class Comum
     {
         //declarações e encapsulamento

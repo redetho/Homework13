@@ -11,7 +11,6 @@ namespace atividade.Entities
         //construtor padrão
         public Importado() { }
         //construtor com parâmetros
-        //valor dos juros:
         public Importado(string condicao, string nome, double preco, double taxa)
             : base(condicao, nome, preco)
         {

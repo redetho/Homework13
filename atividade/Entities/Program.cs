@@ -7,9 +7,9 @@ namespace atividade.Entities
 {
     public class Program
     {
-        //apresenta o saldo da conta.
         static void Main(string[] args)
         {
+            //declarações
             int produtos;
             string condição;
             string nome;
@@ -18,7 +18,7 @@ namespace atividade.Entities
             double taxa;
             
             
-            
+            //recebe o número de produtos.
             Console.WriteLine("insira o n. de produtos:");
             produtos = Convert.ToInt32(Console.ReadLine());
             for(int i = 0; i< produtos; i++)
@@ -26,6 +26,7 @@ namespace atividade.Entities
                 Console.WriteLine();
                 Console.WriteLine("PRODUTO #" + (i + 1));
                 Console.WriteLine("o produto é Comum, usado ou importado?(C, U, I?)");
+                //pergunta se o produto é usado, comum ou importado no if else.
                 if(Console.ReadKey().Key == ConsoleKey.C)
                 {
                     condição = "comum";
@@ -33,7 +34,7 @@ namespace atividade.Entities
                     nome = Console.ReadLine();
                     Console.WriteLine("Digite o preço do produto.");
                     preço = Convert.ToInt32(Console.ReadLine());
-
+                    //adiciona na lista e apresenta uma etiqueta.
                     List<Comum> lista = new List<Comum>();
                     lista.Add(new Comum (condição, nome, preço));
                     Console.WriteLine();
